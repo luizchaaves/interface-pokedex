@@ -16,6 +16,12 @@ export default createGlobalStyle`
     height: 100%;
   }
 
+  #root{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+  }
+
   p, span{
     margin: 0px;
     padding: 0px;
