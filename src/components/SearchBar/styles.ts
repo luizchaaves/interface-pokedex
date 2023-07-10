@@ -27,7 +27,6 @@ export const Input = styled.input`
   font-size: 12px;
   font-weight: 400;
   border: none;
-  border-radius: 1rem;
   background: transparent;
   width: 100%;
   cursor: pointer;

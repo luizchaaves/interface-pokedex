@@ -23,6 +23,7 @@ export const ContainerFilter = styled.div`
   margin-top: 10px;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
+  background: ${(props) => props.theme.color.white};
   box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 10px -5px inset;
   font-size: 12px;
 
@@ -31,10 +32,11 @@ export const ContainerFilter = styled.div`
   opacity: 0;
   transition: opacity 300ms, max-height 300ms;
   pointer-events: none;
+  z-index: 100;
 
   &.show {
     opacity: 1;
-    max-height: 300px;
+    max-height: 250px;
     pointer-events: auto;
   }
 `;
