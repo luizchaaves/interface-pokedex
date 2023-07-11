@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+interface ContainerProps {
+  background: string;
+}
+
+export const Container = styled.div<ContainerProps>`
   width: 200px;
   height: 180px;
   border-radius: 0.5rem;
@@ -8,7 +12,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background: rgb(116, 203, 72);
+  background: ${({ background }) => background};
   overflow: hidden;
   position: relative;
   cursor: pointer;

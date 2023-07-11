@@ -1,14 +1,18 @@
-import React from 'react';
-import { Container } from './styles';
+import { IFetch } from '../../interfaces/interface';
 import Card from '../Card';
-import SkeletonCard from '../SkeletonCard';
 
-const List = () => {
+import { Container } from './styles';
+
+interface Props {
+  pokemonsList: IFetch[] | null;
+}
+
+const List = ({ pokemonsList }: Props) => {
   return (
     <Container>
-      <SkeletonCard />
-      <Card />
-      <Card />
+      {pokemonsList?.map((pokemon) => (
+        <Card key={pokemon.name} pokemonName={pokemon.name} />
+      ))}
     </Container>
   );
 };
