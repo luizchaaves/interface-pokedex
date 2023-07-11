@@ -21,6 +21,7 @@ const Card = ({ pokemonName }: Props) => {
     {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
+      staleTime: Infinity,
     }
   );
 

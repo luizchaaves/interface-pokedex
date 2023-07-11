@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: inline-flex;
   align-items: center;
   gap: 1rem;
+  cursor: pointer;
 `;
 
 export const Text = styled.span`
