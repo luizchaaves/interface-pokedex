@@ -1,12 +1,15 @@
 import { useQuery } from 'react-query';
 
 import { getPokemonsList } from '../../services/api';
+import usePagination from '../../hooks/usePagination';
 
 import Header from '../../components/Header';
 import List from '../../components/List';
 import Loading from '../../components/Loading';
 import Pagination from '../../components/Pagination';
-import usePagination from '../../hooks/usePagination';
+import Wrapper from '../../components/Wrapper';
+
+import { Content } from './styles';
 
 const Pokedex = () => {
   const { page, nextPage, previousPage } = usePagination();
@@ -25,11 +28,11 @@ const Pokedex = () => {
   );
 
   return (
-    <>
+    <Wrapper>
       <Header />
       {isLoading && <Loading />}
       {data && !isLoading && (
-        <div style={{ paddingBottom: '2rem' }}>
+        <Content>
           <List pokemonsList={data.results} />
           <Pagination
             page={page}
@@ -38,9 +41,9 @@ const Pokedex = () => {
             itemsPerPage={limitPokemonsList}
             maxItems={data.count}
           />
-        </div>
+        </Content>
       )}
-    </>
+    </Wrapper>
   );
 };
 
