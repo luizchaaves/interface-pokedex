@@ -1,14 +1,15 @@
-import { useNavigate } from 'react-router-dom';
+import usePagination from '../../hooks/usePagination';
 
 import theme from '../../styles/theme';
 import Pokeball from '../Pokeball';
+
 import { Container, Text } from './styles';
 
 const Logo = () => {
-  const navigate = useNavigate();
+  const { backToHome } = usePagination();
 
   return (
-    <Container onClick={() => navigate('/')}>
+    <Container onClick={() => backToHome()}>
       <Pokeball size={24} color={theme.color.dark} />
       <Text>Pokédex</Text>
     </Container>
