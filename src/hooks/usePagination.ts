@@ -25,11 +25,17 @@ const usePagination = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
 
+  const selectPage = (page: number) => {
+    setPage(page);
+    navigate(`/?page=${page}`);
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   useEffect(() => {
     setPage(parseInt(searchParams.get('page')!) || 1);
   }, [searchParams]);
 
-  return { page, setPage, nextPage, previousPage, backToHome };
+  return { page, setPage, nextPage, previousPage, backToHome, selectPage };
 };
 
 export default usePagination;
