@@ -5,6 +5,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  padding-top: 1rem;
 `;
 
 export const Button = styled.button`

@@ -48,4 +48,8 @@ export const ContainerImage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  img {
+    filter: drop-shadow(5px 10px 5px rgba(0, 0, 0, 0.8));
+  }
 `;
