@@ -2,10 +2,19 @@ import { useState, useRef, useEffect } from 'react';
 import { BsFilterLeft } from 'react-icons/bs';
 
 import { Circle, Container, ContainerFilter, Option } from './styles';
+import { getTypesPokemons } from '../../services/api';
+import { IFetch } from '../../interfaces/interface';
+import { background } from '../../interfaces/backgroundByType';
 
 const Filter = () => {
   const menuRef = useRef<HTMLDivElement>(null);
   const [showMenu, setShowMenu] = useState<boolean>();
+  const [types, setTypes] = useState<IFetch[]>();
+
+  const getTypes = async () => {
+    const types = await getTypesPokemons();
+    setTypes(types.results);
+  };
 
   const handleToggleFilter = () => {
     setShowMenu(!showMenu);
@@ -17,6 +26,7 @@ const Filter = () => {
   };
 
   useEffect(() => {
+    getTypes();
     document.addEventListener('click', handleOutsideClick);
     return () => document.removeEventListener('click', handleOutsideClick);
   }, []);
@@ -27,16 +37,21 @@ const Filter = () => {
         <BsFilterLeft />
       </Circle>
       <ContainerFilter className={showMenu ? 'show' : ''}>
-        <Option>aaaaaaaaaaaaaaaa</Option>
-        <Option>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</Option>
-        <Option>cccccccccccc</Option>
-        <Option>dddddddddddddd</Option>
-        <Option>eeeeeeeeeeeeeeeee</Option>
-        <Option>ffffffffffffffff</Option>
-        <Option>gggggggggggggg</Option>
-        <Option>hhhhhhhhhhhhhhhh</Option>
-        <Option>iiiiiiiiiiiiiiiiiii</Option>
-        <Option>jjjjjjjjjjjjjjjj</Option>
+        <Option
+          /*@ts-ignore */
+          borderColor={'#e6e6e6'}
+        >
+          All
+        </Option>
+        {types?.map((type) => (
+          <Option
+            key={type.name}
+            /*@ts-ignore */
+            borderColor={background[type.name]}
+          >
+            {type.name}
+          </Option>
+        ))}
       </ContainerFilter>
     </Container>
   );

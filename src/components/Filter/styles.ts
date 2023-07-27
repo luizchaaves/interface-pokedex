@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface StyledProps {
+  borderColor: string;
+}
+
 export const Container = styled.div`
   position: relative;
   display: inline-block;
@@ -41,12 +45,14 @@ export const ContainerFilter = styled.div`
   }
 `;
 
-export const Option = styled.div`
-  padding: 0.5rem;
+export const Option = styled.div<StyledProps>`
+  text-transform: capitalize;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
+  border-left: 5px solid ${({ borderColor }) => borderColor};
 
   &:not(:last-child) {
     border-bottom: 1px solid ${(props) => props.theme.color.light};

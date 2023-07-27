@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IPokemon, IPokemonList } from '../interfaces/interface';
+import { IPokemon, IPokemonList, IPokemonType } from '../interfaces/interface';
 
 const baseURL = 'https://pokeapi.co/api/v2/';
 
@@ -24,5 +24,17 @@ export const getPokemonByUrl = async (
   pokemonUrl: string
 ): Promise<IPokemon> => {
   const response = await axios.get(pokemonUrl);
+  return response.data;
+};
+
+export const getTypesPokemons = async (): Promise<IPokemonList> => {
+  const response = await api.get<IPokemonList>(`type`);
+  return response.data;
+};
+
+export const getPokemonsByType = async (
+  type: string
+): Promise<IPokemonType> => {
+  const response = await api.get<IPokemonType>(`type/${type}`);
   return response.data;
 };
