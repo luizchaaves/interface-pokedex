@@ -17,6 +17,10 @@ export const Box = styled.div`
     top: -180px;
     position: absolute;
     filter: drop-shadow(5px 10px 5px rgba(0, 0, 0, 0.8));
+
+    @media (max-height: 540px) {
+      top: -140px;
+    }
   }
 
   @media (max-width: 650px) {
@@ -41,5 +45,5 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 0px 16px;
+  padding: 0px 16px 24px;
 `;
