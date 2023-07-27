@@ -1,16 +1,17 @@
-import { Container, Filters } from './styles';
+import { Container } from './styles';
 import Logo from '../Logo';
-import SearchBar from '../SearchBar';
-import Filter from '../Filter';
+// import {Filters} from './styles'
+// import SearchBar from '../SearchBar';
+// import Filter from '../Filter';
 
 const Header = () => {
   return (
     <Container>
       <Logo />
-      <Filters>
+      {/* <Filters>
         <SearchBar />
         <Filter />
-      </Filters>
+      </Filters> */}
     </Container>
   );
 };
